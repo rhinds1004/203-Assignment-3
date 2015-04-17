@@ -1,0 +1,19 @@
+extensions: designer.cs generated.cs
+extensions: .cs .cpp .h
+//***************************************************************
+//*  Robert Hinds
+//*  TCES 203
+//*  Assignment #
+//*  
+//*  This Program does
+//***************************************************************
+extensions: .aspx .ascx
+<%-- 
+Sample license text.
+--%>
+extensions: .vb
+'Sample license text.
+extensions:  .xml .config .xsd
+<!--
+Sample license text.
+-->

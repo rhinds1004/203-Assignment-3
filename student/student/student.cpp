@@ -14,9 +14,13 @@ using namespace std;
 
 int main()
 {
-
-Student * stud = createStudent();
-changeInfo(stud, 11111);
+	int count = 0;
+	string placeHolder;
+	cout << "How many student profiles to create:";
+	getline(cin, placeHolder);
+	count = atoi(placeHolder.c_str());
+Student * stud = createStudent(count);
+changeInfo(stud,3, 11111);
 		cin.get();
 		delete []stud;
 		return 0;
@@ -31,11 +35,11 @@ int printMenu()
 	
 	return 0;
 }
-int changeInfo(Student * studentArr, const int displayOne)
+int changeInfo(Student * studentArr, const int arraySize, int displayOne)
 {
 	int i = 0;
 
-	while (studentArr[i].id != displayOne && studentArr[i].end != 'T')
+	while (studentArr[i].id != displayOne && i < arraySize)
 	{
 		i++;
 	}
@@ -51,11 +55,11 @@ int changeInfo(Student * studentArr, const int displayOne)
 	else cout << "Student ID: " << displayOne << " not found." << endl;
 	return 0;
 }
-int displayInfo(const Student * studentArr, const int displayOne)
+int displayInfo(const Student * studentArr ,const int arraySize, const int displayOne)
 {
 	int i = 0;
 	
-	while (studentArr[i].id != displayOne && studentArr[i].end != 'T')
+	while (studentArr[i].id != displayOne && i < arraySize)
 	{
 		i++;
 	}
@@ -69,11 +73,11 @@ int displayInfo(const Student * studentArr, const int displayOne)
 	return 0;
 }
 
-int displayInfo(const Student * studentArr)
+int displayInfo(const Student * studentArr, const int arraySize )
 {
 	int i = 0;
 
-	while (studentArr[i].end != 'T')
+	while (i < arraySize)
 	{
 		cout << "Student ID      : " << studentArr[i].id << endl;
 		cout << "Student's name  : " << studentArr[i].name << endl;
@@ -83,17 +87,15 @@ int displayInfo(const Student * studentArr)
 	return 0;
 }
 
-Student * createStudent()
+Student * createStudent(const int studentAmount)
 {
-	int count = 0, i;
+	int  i;
 	Student *studentArray;
 	string placeHolder;
-	cout << "How many student profiles to create:";
-	getline(cin, placeHolder);
-	count = atoi(placeHolder.c_str());
-	studentArray = allocateArray(count);
+	
+	Student *students = new Student[studentAmount];
 	cout << endl;
-	for (i = 0; i < count; i++)
+	for (i = 0; i < studentAmount; i++)
 	{
 		placeHolder.clear();
 		
@@ -114,12 +116,5 @@ Student * createStudent()
 		getline(cin, (studentArray + i)->hobby);
 		cout << endl;
 	}
-	studentArray[count].end = 'T';
 	return studentArray;
-}
-
-Student * allocateArray(const int studentAmount)
-{
-	Student *students = new Student[studentAmount];
-	return students;
 }

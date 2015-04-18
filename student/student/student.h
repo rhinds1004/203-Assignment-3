@@ -30,11 +30,10 @@ struct Student
 //Prototypes
 int printMenu();
 
-Student * createStudent();
-Student * allocateArray(const int);
-int displayInfo(const Student * , const int);
-int displayInfo(const Student *);
-int changeInfo(Student * , const int);
+Student * createStudent(const int, const int arraySize);
+int displayInfo(const Student *, const int arraySize, const int idNumber);
+int displayInfo(const Student *, const int arraySize);
+int changeInfo(Student *, const int arraySize, const int idNumber);
 
 
 

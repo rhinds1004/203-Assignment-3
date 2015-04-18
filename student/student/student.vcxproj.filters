@@ -22,4 +22,9 @@
   <ItemGroup>
     <None Include="student.licenseheader" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="student.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

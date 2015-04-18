@@ -1,8 +1,4 @@
 //header
-#include <iostream>
-#include <string>
-#include <iomanip>
-using namespace std;
 
 #ifndef IOSTREAM_H
 #define IOSTREAM_H
@@ -14,9 +10,9 @@ using namespace std;
 #include <string>
 #endif
 
-#ifndef IOMAP_H
-#define IOMAP_H
-#include <iomanip>
+#ifndef CSTLIB_H
+#define CSTLIB_H
+#include <cstdlib>
 #endif
 
 
@@ -25,16 +21,17 @@ using namespace std;
 struct Student
 {
 	int id;
-	string name;
-	string hobby;
+	std::string name;
+	std::string hobby;
 };
 #endif
 
-#define SIZE 3
 //Prototypes
 int printMenu();
 
-int createStudent();
+Student * createStudent();
+Student * allocateArray(const int studentAmount);
+int displayInfo(const Student * studentArr, const int displayOne);
 
-Student *allocateArray(int);
+
 

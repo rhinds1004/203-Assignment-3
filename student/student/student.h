@@ -23,6 +23,7 @@ struct Student
 	int id;
 	std::string name;
 	std::string hobby;
+	char end;
 };
 #endif
 
@@ -30,8 +31,10 @@ struct Student
 int printMenu();
 
 Student * createStudent();
-Student * allocateArray(const int studentAmount);
-int displayInfo(const Student * studentArr, const int displayOne);
+Student * allocateArray(const int);
+int displayInfo(const Student * , const int);
+int displayInfo(const Student *);
+int changeInfo(Student * , const int);
 
 
 

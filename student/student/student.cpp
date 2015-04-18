@@ -14,12 +14,9 @@ using namespace std;
 
 int main()
 {
-	int select = 0;
-	
-printMenu();
 
 Student * stud = createStudent();
-displayInfo(stud, 11111);
+changeInfo(stud, 11111);
 		cin.get();
 		delete []stud;
 		return 0;
@@ -27,31 +24,65 @@ displayInfo(stud, 11111);
 
 int printMenu()
 {
-	cout << "*********** HELP MENU ***********" << endl << endl;
-	cout << "1) Create Student Profiles" << endl;
-	cout << "2) Display A Student Profile" << endl;
-	cout << "3) Display Student Profiles" << endl;
-	cout << "4) Exit" << endl;
-	cout << endl << "****************************" << endl << endl;
+	cout << "                 *********** HELP MENU ***********" << endl << endl;
+	cout << "createStudent() - Create Student Profiles - returns Student struct pointer" << endl;
+	cout << "displayInfo(const Student *, const int)   - Display A Student Profile - returns an int" << endl;
+	cout << "displayInfo(const Student *)              - Display Student Profiles  - returns an int" << endl;
+	
 	return 0;
 }
-
-int displayInfo(const Student * studentArr, const int displayOne)
+int changeInfo(Student * studentArr, const int displayOne)
 {
-	int i = 0, studentCount = 0;
-	
-	while (studentArr[i].id != displayOne && studentArr[i].id != NULL)
+	int i = 0;
+
+	while (studentArr[i].id != displayOne && studentArr[i].end != 'T')
 	{
 		i++;
 	}
 	if (studentArr[i].id == displayOne)
 	{
+		cout << "Student ID      : " << studentArr[i].id << endl;
+		cout << "Enter student name " << i + 1 << ": ";
+		getline(cin, (studentArr + i)->name);
+		cout << "Enter student's hobby " << i + 1 << ": ";
+		getline(cin, (studentArr + i)->hobby);
+		cout << endl;
+	}
+	else cout << "Student ID: " << displayOne << " not found." << endl;
+	return 0;
+}
+int displayInfo(const Student * studentArr, const int displayOne)
+{
+	int i = 0;
+	
+	while (studentArr[i].id != displayOne && studentArr[i].end != 'T')
+	{
+		i++;
+	}
+	if (studentArr[i].id == displayOne)
+	{
+		cout << "Student ID      : " << studentArr[i].id << endl;
 		cout << "Student's name  : " << studentArr[i].name << endl;
 		cout << "Student's hobby : " << studentArr[i].hobby << endl;;
 	}
 	else cout << "Student ID: " << displayOne << " not found." << endl;
 	return 0;
 }
+
+int displayInfo(const Student * studentArr)
+{
+	int i = 0;
+
+	while (studentArr[i].end != 'T')
+	{
+		cout << "Student ID      : " << studentArr[i].id << endl;
+		cout << "Student's name  : " << studentArr[i].name << endl;
+		cout << "Student's hobby : " << studentArr[i].hobby << endl << endl;
+		i++;
+	}
+	return 0;
+}
+
 Student * createStudent()
 {
 	int count = 0, i;
@@ -61,9 +92,11 @@ Student * createStudent()
 	getline(cin, placeHolder);
 	count = atoi(placeHolder.c_str());
 	studentArray = allocateArray(count);
+	cout << endl;
 	for (i = 0; i < count; i++)
 	{
 		placeHolder.clear();
+		
 		while (placeHolder.length() != 5)
 		{
 			cout << "Enter a 5 digit id for the student " << i + 1 << ": ";
@@ -79,7 +112,9 @@ Student * createStudent()
 		getline(cin, (studentArray + i)->name);
 		cout << "Enter student's hobby " << i + 1 << ": ";
 		getline(cin, (studentArray + i)->hobby);
+		cout << endl;
 	}
+	studentArray[count].end = 'T';
 	return studentArray;
 }
 

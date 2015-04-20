@@ -30,7 +30,7 @@ struct Student
 //Prototypes
 int printMenu();
 
-Student * createStudent(const int, const int arraySize);
+Student * createStudent(const int arraySize);
 int displayInfo(const Student *, const int arraySize, const int idNumber);
 int displayInfo(const Student *, const int arraySize);
 int changeInfo(Student *, const int arraySize, const int idNumber);

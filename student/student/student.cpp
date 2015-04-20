@@ -20,6 +20,7 @@ int main()
 	getline(cin, placeHolder);
 	count = atoi(placeHolder.c_str());
 Student * stud = createStudent(count);
+displayInfo(stud, count);
 changeInfo(stud,3, 11111);
 		cin.get();
 		delete []stud;
@@ -90,10 +91,10 @@ int displayInfo(const Student * studentArr, const int arraySize )
 Student * createStudent(const int studentAmount)
 {
 	int  i;
-	Student *studentArray;
+	//Student *studentArray;
 	string placeHolder;
 	
-	Student *students = new Student[studentAmount];
+	Student *studentArray = new Student[studentAmount];
 	cout << endl;
 	for (i = 0; i < studentAmount; i++)
 	{

@@ -9,30 +9,14 @@
 
 #include "student.h"
 
-using namespace std;
 
-
-int main()
-{
-	int count = 0;
-	string placeHolder;
-	cout << "How many student profiles to create:";
-	getline(cin, placeHolder);
-	count = atoi(placeHolder.c_str());
-Student * stud = createStudent(count);
-displayInfo(stud, count);
-changeInfo(stud,3, 11111);
-		cin.get();
-		delete []stud;
-		return 0;
-}
 
 int printMenu()
 {
-	cout << "                 *********** HELP MENU ***********" << endl << endl;
-	cout << "createStudent() - Create Student Profiles - returns Student struct pointer" << endl;
-	cout << "displayInfo(const Student *, const int)   - Display A Student Profile - returns an int" << endl;
-	cout << "displayInfo(const Student *)              - Display Student Profiles  - returns an int" << endl;
+	std::cout << "                 *********** HELP MENU ***********" << std::endl << std::endl;
+	std::cout << "createStudent() - Create Student Profiles - returns Student struct pointer" << std::endl;
+	std::cout << "displayInfo(const Student *, const int)   - Display A Student Profile - returns an int" << std::endl;
+	std::cout << "displayInfo(const Student *)              - Display Student Profiles  - returns an int" << std::endl;
 	
 	return 0;
 }
@@ -46,14 +30,14 @@ int changeInfo(Student * studentArr, const int arraySize, int displayOne)
 	}
 	if (studentArr[i].id == displayOne)
 	{
-		cout << "Student ID      : " << studentArr[i].id << endl;
-		cout << "Enter student name " << i + 1 << ": ";
-		getline(cin, (studentArr + i)->name);
-		cout << "Enter student's hobby " << i + 1 << ": ";
-		getline(cin, (studentArr + i)->hobby);
-		cout << endl;
+		std::cout << "Student ID      : " << studentArr[i].id << std::endl;
+		std::cout << "Enter student name " << i + 1 << ": ";
+		std::getline(std::cin, (studentArr + i)->name);
+		std::cout << "Enter student's hobby " << i + 1 << ": ";
+		std::getline(std::cin, (studentArr + i)->hobby);
+		std::cout << std::endl;
 	}
-	else cout << "Student ID: " << displayOne << " not found." << endl;
+	else std::cout << "Student ID: " << displayOne << " not found." << std::endl;
 	return 0;
 }
 int displayInfo(const Student * studentArr ,const int arraySize, const int displayOne)
@@ -66,11 +50,11 @@ int displayInfo(const Student * studentArr ,const int arraySize, const int displ
 	}
 	if (studentArr[i].id == displayOne)
 	{
-		cout << "Student ID      : " << studentArr[i].id << endl;
-		cout << "Student's name  : " << studentArr[i].name << endl;
-		cout << "Student's hobby : " << studentArr[i].hobby << endl;;
+		std::cout << "Student ID      : " << studentArr[i].id << std::endl;
+		std::cout << "Student's name  : " << studentArr[i].name << std::endl;
+		std::cout << "Student's hobby : " << studentArr[i].hobby << std::endl;;
 	}
-	else cout << "Student ID: " << displayOne << " not found." << endl;
+	else std::cout << "Student ID: " << displayOne << " not found." << std::endl;
 	return 0;
 }
 
@@ -80,9 +64,9 @@ int displayInfo(const Student * studentArr, const int arraySize )
 
 	while (i < arraySize)
 	{
-		cout << "Student ID      : " << studentArr[i].id << endl;
-		cout << "Student's name  : " << studentArr[i].name << endl;
-		cout << "Student's hobby : " << studentArr[i].hobby << endl << endl;
+		std::cout << "Student ID      : " << studentArr[i].id << std::endl;
+		std::cout << "Student's name  : " << studentArr[i].name << std::endl;
+		std::cout << "Student's hobby : " << studentArr[i].hobby << std::endl << std::endl;
 		i++;
 	}
 	return 0;
@@ -91,31 +75,31 @@ int displayInfo(const Student * studentArr, const int arraySize )
 Student * createStudent(const int studentAmount)
 {
 	int  i;
-	//Student *studentArray;
-	string placeHolder;
+	
+	std::string placeHolder;
 	
 	Student *studentArray = new Student[studentAmount];
-	cout << endl;
+	std::cout << std::endl;
 	for (i = 0; i < studentAmount; i++)
 	{
 		placeHolder.clear();
 		
 		while (placeHolder.length() != 5)
 		{
-			cout << "Enter a 5 digit id for the student " << i + 1 << ": ";
-			getline(cin, placeHolder);
+			std::cout << "Enter a 5 digit id for the student " << i + 1 << ": ";
+			std::getline(std::cin, placeHolder);
 			if (placeHolder.length() != 5)
 			{
-				cout << "Invalid entry." << endl << endl;
+				std::cout << "Invalid entry." << std::endl << std::endl;
 				placeHolder.clear();
 			}
 		}
 		(studentArray + i)->id = atoi(placeHolder.c_str());
-		cout << "Enter student name " << i + 1 << ": ";
-		getline(cin, (studentArray + i)->name);
-		cout << "Enter student's hobby " << i + 1 << ": ";
-		getline(cin, (studentArray + i)->hobby);
-		cout << endl;
+		std::cout << "Enter student name " << i + 1 << ": ";
+		std::getline(std::cin, (studentArray + i)->name);
+		std::cout << "Enter student's hobby " << i + 1 << ": ";
+		std::getline(std::cin, (studentArray + i)->hobby);
+		std::cout << std::endl;
 	}
 	return studentArray;
 }

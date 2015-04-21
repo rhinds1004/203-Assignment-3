@@ -13,13 +13,6 @@ int main()
 	printMenu();
 	cout << endl << endl;
 	//Showing createStudent() function
-	std::cout << "How many student profiles to create: 0\n";
-	cout << "*Showing error checking if 0 or less is entered*\n";
-	placeHolder = "0";
-	count = atoi(placeHolder.c_str());
-	Student * stud0 = createStudent(count);
-	cout << "Memory address of Student struct is: " << stud0 << endl;
-	placeHolder.clear();
 	std::cout << endl << "How many student profiles to create: ";
 	getline(cin, placeHolder);
 	count = atoi(placeHolder.c_str());

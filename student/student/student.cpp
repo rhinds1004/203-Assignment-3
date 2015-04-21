@@ -2,7 +2,7 @@
 //*  Robert Hinds
 //*  TCES 203
 //*  Assignment #
-//*  
+//*
 //*  This Program does
 //***************************************************************
 
@@ -16,15 +16,14 @@ int deleteArray(Student * studentArray)
 	studentArray = NULL;
 	return 0;
 }
-int printMenu()
+void printMenu()
 {
 	std::cout << "                 *********** HELP MENU ***********" << std::endl << std::endl;
 	std::cout << "createStudent() - Create Student Profiles - returns Student struct pointer" << std::endl;
 	std::cout << "displayInfo(const Student *, const int)   - Display A Student Profile - returns an int" << std::endl;
 	std::cout << "displayInfo(const Student *)              - Display Student Profiles  - returns an int" << std::endl;
-	
-	return 0;
 }
+
 int changeInfo(Student * studentArr, const int arraySize, int displayOne)
 {
 	int i = 0;
@@ -36,9 +35,9 @@ int changeInfo(Student * studentArr, const int arraySize, int displayOne)
 	if (studentArr[i].id == displayOne)
 	{
 		std::cout << "Student ID      : " << studentArr[i].id << std::endl;
-		std::cout << "Enter student name " << i + 1 << ": ";
+		std::cout << "Enter student name : ";
 		std::getline(std::cin, (studentArr + i)->name);
-		std::cout << "Enter student's hobby " << i + 1 << ": ";
+		std::cout << "Enter student's hobby : ";
 		std::getline(std::cin, (studentArr + i)->hobby);
 		std::cout << std::endl;
 	}
@@ -48,7 +47,7 @@ int changeInfo(Student * studentArr, const int arraySize, int displayOne)
 int displayInfo(const Student * studentArr ,const int arraySize, const int displayOne)
 {
 	int i = 0;
-	
+
 	while (studentArr[i].id != displayOne && i < arraySize)
 	{
 		i++;
@@ -81,17 +80,12 @@ Student * createStudent(const int studentAmount)
 {
 	int  i;
 	std::string placeHolder;
-	if (studentAmount <= 0)
-	{
-		std::cout << "Error. Value must be 1 or greater\n";
-		return NULL;
-	}
 	Student *studentArray = new Student[studentAmount];
 	std::cout << std::endl;
 	for (i = 0; i < studentAmount; i++)
 	{
 		placeHolder.clear();
-		
+
 		while (placeHolder.length() != 5)
 		{
 			std::cout << "Enter a 5 digit id for the student " << i + 1 << ": ";

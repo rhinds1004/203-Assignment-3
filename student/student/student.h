@@ -16,8 +16,8 @@
 #endif
 
 
-#ifndef STUDENT_STUCT
-#define STUDENT_STUCT
+#ifndef STUDENT_H
+#define STUDETN_H
 struct Student
 {
 	int id;
@@ -25,12 +25,9 @@ struct Student
 	std::string hobby;
 	char end;
 };
-#endif
 
-#ifndef STUDENT_H
-#define STUDETN_H
 //Prototypes
-int printMenu();
+void printMenu();
 Student * createStudent(const int arraySize);
 int displayInfo(const Student *, const int arraySize, const int idNumber);
 int displayInfo(const Student *, const int arraySize);

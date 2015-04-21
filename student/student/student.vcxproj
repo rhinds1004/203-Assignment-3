@@ -76,7 +76,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
     <ClCompile Include="student.cpp" />
   </ItemGroup>
   <ItemGroup>

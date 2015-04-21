@@ -10,7 +10,12 @@
 #include "student.h"
 
 
-
+int deleteArray(Student * studentArray)
+{
+	delete[]studentArray;
+	studentArray = NULL;
+	return 0;
+}
 int printMenu()
 {
 	std::cout << "                 *********** HELP MENU ***********" << std::endl << std::endl;
@@ -75,9 +80,12 @@ int displayInfo(const Student * studentArr, const int arraySize )
 Student * createStudent(const int studentAmount)
 {
 	int  i;
-	
 	std::string placeHolder;
-	
+	if (studentAmount <= 0)
+	{
+		std::cout << "Error. Value must be 1 or greater\n";
+		return NULL;
+	}
 	Student *studentArray = new Student[studentAmount];
 	std::cout << std::endl;
 	for (i = 0; i < studentAmount; i++)

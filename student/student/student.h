@@ -35,6 +35,7 @@ Student * createStudent(const int arraySize);
 int displayInfo(const Student *, const int arraySize, const int idNumber);
 int displayInfo(const Student *, const int arraySize);
 int changeInfo(Student *, const int arraySize, const int idNumber);
+int deleteArray(Student *);
 #endif
 
 

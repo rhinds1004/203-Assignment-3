@@ -26,7 +26,7 @@ int main()
 	Student * stud = createStudent(count);
 	placeHolder.clear();
 	//Show displayInfo() function for multiple ID numbers
-	cout << endl << "*Displaying student infomation just entered*" << endl;
+	cout << endl << "*Displaying student information just entered*" << endl;
 	displayInfo(stud, count);
 	//Showing displayInfo() function for a single ID number
 	cout << "Which student information to display: 1337 " << endl;
@@ -41,7 +41,7 @@ int main()
 	answer = atoi(placeHolder.c_str());
 	displayInfo(stud, count, answer);
 	cout << endl;
-	cout << endl << "*Displaying student infomation*" << endl;
+	cout << endl << "*Displaying student information*" << endl;
 	displayInfo(stud, count);
 	placeHolder.clear();
 	//Showing changeInfo() function

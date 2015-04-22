@@ -37,7 +37,7 @@ int changeInfo(Student * studentArr, const int arraySize, int displayOne)
 {
 	int i = 0;
 
-	while (studentArr[i].id != displayOne && i < arraySize)
+	while (studentArr[i].id != displayOne && i < arraySize-1)
 	{
 		i++;
 	}
@@ -61,7 +61,7 @@ int displayInfo(const Student * studentArr ,const int arraySize, const int displ
 {
 	int i = 0;
 
-	while (studentArr[i].id != displayOne && i < arraySize)
+	while (studentArr[i].id != displayOne && i < arraySize-1)
 	{
 		i++;
 	}

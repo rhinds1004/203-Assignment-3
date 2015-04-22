@@ -52,7 +52,7 @@ int main()
 	cout << "*Showing error checking if invalid student id is entered*" << endl;
 	placeHolder = "1337";
 	answer = atoi(placeHolder.c_str());
-	displayInfo(stud, count, answer);
+	changeInfo(stud, count, answer);
 	cout << endl;
 	placeHolder.clear();
 	cout << endl << "Which student information to change: ";

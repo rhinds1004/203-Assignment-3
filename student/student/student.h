@@ -1,4 +1,14 @@
-//header
+//***************************************************************
+//*  Robert Hinds
+//*  TCES 203
+//*  Assignment #3
+//*		
+//*  This is a header file for a program is a basic student record system. The user can create an array of student structs,
+//*  display the information  of all the students or the information of a single student  ID number.
+//*  The user can also change the name and hobby of a specified student ID. Two helper functions are
+//*  include, a basic help menu, which lists the functions and what it does and returns and simple
+//*  memory deallocation function.
+//***************************************************************
 
 #ifndef IOSTREAM_H
 #define IOSTREAM_H

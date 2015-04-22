@@ -1,21 +1,27 @@
 //***************************************************************
 //*  Robert Hinds
 //*  TCES 203
-//*  Assignment #
+//*  Assignment #3
 //*
-//*  This Program does
+//*  This Program is a basic student record system. The user can create an array of student structs,
+//*  display the information  of all the students or the information of a single student  ID number.
+//*  The user can also change the name and hobby of a specified student ID. Two helper functions are
+//*  include, a basic help menu, which lists the functions and what it does and returns and simple
+//*  memory deallocation function.
 //***************************************************************
 
 
 #include "student.h"
 
-
+//Deallocates the student struct array that was created and sets the pointer it resided at to NULL.
 int deleteArray(Student * studentArray)
 {
 	delete[]studentArray;
 	studentArray = NULL;
 	return 0;
 }
+
+//Basic help menu, which lists the functions and what it does and returns
 void printMenu()
 {
 	std::cout << "                 *********** HELP MENU ***********" << std::endl << std::endl;
@@ -24,6 +30,9 @@ void printMenu()
 	std::cout << "displayInfo(const Student *)              - Display Student Profiles  - returns an int" << std::endl;
 }
 
+//Takes in a Student struct array, the size of the array and a student id. It searches
+//through the array for the the student ID number. If found, the user is allowed to change
+//the name and hobby. Otherwise, says the user was not found.
 int changeInfo(Student * studentArr, const int arraySize, int displayOne)
 {
 	int i = 0;
@@ -44,6 +53,10 @@ int changeInfo(Student * studentArr, const int arraySize, int displayOne)
 	else std::cout << "Student ID: " << displayOne << " not found." << std::endl;
 	return 0;
 }
+
+//Takes in a Student struct array, the size of the array and a student id. It searches
+//through the array for the the student ID number. If found, the name and hobby of that
+//ID number are displayed to the screen. Otherwise, says the user was not found.
 int displayInfo(const Student * studentArr ,const int arraySize, const int displayOne)
 {
 	int i = 0;
@@ -62,6 +75,8 @@ int displayInfo(const Student * studentArr ,const int arraySize, const int displ
 	return 0;
 }
 
+//Takes in a Student struct array and the size of the array. It displays all the information
+//for all students structs in the array.
 int displayInfo(const Student * studentArr, const int arraySize )
 {
 	int i = 0;
@@ -76,6 +91,10 @@ int displayInfo(const Student * studentArr, const int arraySize )
 	return 0;
 }
 
+//Dynamically allocates an array of student structs then asks for a student ID, Student name
+//and hobby for each struct struct created. If anything other than 5 digits are entered
+//the user is prompted to try again due to invalid entry. A Student struct pointer is
+//returned to the calling function.
 Student * createStudent(const int studentAmount)
 {
 	int  i;

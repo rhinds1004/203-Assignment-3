@@ -1,3 +1,13 @@
+//***************************************************************
+//*  Robert Hinds
+//*  TCES 203
+//*  Assignment #3
+//*		
+//*  This program is a test of the functions of student.cpp file
+//***************************************************************
+
+
+
 #include <iostream>
 #include <string>
 #include "student.h"
